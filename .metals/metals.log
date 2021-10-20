@@ -2,3 +2,4 @@
 [0m2021.10.19 07:32:42 INFO  time: initialize in 3.03s[0m
 [0m2021.10.19 07:32:43 WARN  Build server is not auto-connectable.[0m
 [0m2021.10.19 07:32:43 WARN  no build tool detected in workspace 'C:\Users\nesto\Desktop\UNAL\Algorithms\AlgorithmsUN2021II'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. [0m
+[0m2021.10.19 08:19:54 INFO  shutting down Metals[0m
