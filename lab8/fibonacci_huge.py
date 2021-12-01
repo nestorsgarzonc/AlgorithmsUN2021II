@@ -2,20 +2,36 @@
 import sys
 
 
-def get_fibonacci_huge_naive(n, m):
-    if n <= 1:
-        return n
+def get_fibonacci(n):
+    if n == 0:
+        return 0
+    if n == 1:
+        return 1
 
-    previous = 0
-    current = 1
+    fib = [x for x in range(n+1)]
+    fib[0] = 0
+    fib[1] = 1
 
-    for _ in range(n - 1):
-        previous, current = current, previous + current
+    for i in range(2, n+1):
+        fib[i] = fib[i-1]+fib[i-2]
+    return fib[n]
 
-    return current % m
+
+def fibonacci_huge(n, m):
+
+    index = -1
+
+    for i in range(2, 10**14):
+        if(get_fibonacci(i) % m == 0):
+            if(get_fibonacci(i+1) % m == 1):
+                index = i
+                break
+    mod_small = n % index
+    fib_small = get_fibonacci(mod_small) % m
+    return fib_small
 
 
 if __name__ == '__main__':
-    input = sys.stdin.read()
-    n, m = map(int, input.split())
+    _input = sys.stdin.read()
+    n, m = map(int, _input.split())
     print(get_fibonacci_huge_naive(n, m))

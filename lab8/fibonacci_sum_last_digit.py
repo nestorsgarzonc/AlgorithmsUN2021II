@@ -2,7 +2,7 @@
 import sys
 
 
-def fibonacci_sum_naive(n):
+def fibonacci_sum_naive(n, m):
     if n <= 1:
         return n
 
@@ -10,14 +10,15 @@ def fibonacci_sum_naive(n):
     current = 1
     _sum = 1
 
-    for _ in range(n - 1):
-        previous, current = current, previous + current
-        _sum += current
-
-    return _sum % 10
+    for i in range(n-1):
+        tmp_previous = previous
+        previous = current % 10
+        current = (tmp_previous + current) % 10
+        _sum = (_sum + current) % 10
+    return _sum
 
 
 if __name__ == '__main__':
-    input = sys.stdin.read()
-    n = int(input)
-    print(fibonacci_sum_naive(n))
+    _input = input()  # sys.stdin.read()
+    n = int(_input)
+    print(fibonacci_sum_naive(n % 60, 10))
