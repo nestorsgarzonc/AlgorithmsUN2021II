@@ -22,10 +22,9 @@ def fibonacci_huge(n, m):
     index = -1
 
     for i in range(2, 10**14):
-        if(get_fibonacci(i) % m == 0):
-            if(get_fibonacci(i+1) % m == 1):
-                index = i
-                break
+        if(get_fibonacci(i) % m == 0 and get_fibonacci(i+1) % m == 1):
+            index = i
+            break
     mod_small = n % index
     fib_small = get_fibonacci(mod_small) % m
     return fib_small
@@ -34,4 +33,4 @@ def fibonacci_huge(n, m):
 if __name__ == '__main__':
     _input = sys.stdin.read()
     n, m = map(int, _input.split())
-    print(get_fibonacci_huge_naive(n, m))
+    print(fibonacci_huge(n, m))
